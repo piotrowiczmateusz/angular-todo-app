@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!-- Meta -->
+
+    <meta charset="UTF-8" />
+    <title>Angular Todo App</title>
+
+	<!-- Javascript -->
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/App.js"></script>
+    <script src="js/ToDoCtrl.js"></script>
+
+    <!-- Fonts and icons -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="favicon.ico.png" />
+
+    <!-- CSS -->
+
+    <link href='bower_components/bootstrap/dist/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='bower_components/jquery-ui/themes/base/all.css' rel='stylesheet' type='text/css'>  
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+
+    <div id="app-container" ng-app="App" ng-controller="ToDoCtrl">
+
+        <div id="header" class="col-md-12">
+        	<h1><i class="fa fa-check"></i> Angular Todo App</h1>
+        </div>
+
+        <div id="content-container" class="col-md-12">
+	        
+	        <div id="categories-container" class="col-md-3">
+	            
+	            <h3>Categories</h3>
+	            
+	            <form ng-submit="addCategory()">
+	                <input id="add-category" ng-model="newCategoryTitle" />
+	                <button type="submit" id="submit-button" class="fa fa-plus-circle"></button>
+	            </form>
+	            
+	            <div class="category" ng-repeat="(index, category) in categoryList">
+	                <i class="fa fa-caret-right"></i>
+	                <span ng-click="changeCategory(index)">{{category.title}}</span>
+	                <button class="fa fa-trash-o" ng-click="removeCategory(index)"></button>
+	            </div>
+	            
+	            <div id="total-categories">Total categories: {{totalCategories}}</div>
+
+	        </div>
+
+	    	<div id="todo-container" class="col-md-9">
+	    		    		
+	            <h2>{{categoryList[categoryIndex].title}}</h2>
+
+	            <div id="total">Total tasks: {{categoryTotal}} | Total undone tasks: {{categoryTotalUndone}}</div>
+
+	    		<form ng-submit="addTask()">
+			    	<input type="text" id="new-task-input" ng-model="newTaskText" />
+			    	<button type="submit" id="submit-button" class="fa fa-plus-circle"></button>
+		    	</form>
+		    	
+		    	<h3>To-do</h3>
+		    	
+		    	<div id="todo-list-undone">
+	 	
+			    	<li class="task" ng-class="{'done': isDone, 'undone': !isDone}" ng-repeat="(index, task) in categoryList[categoryIndex].toDoList">
+
+			    		<span class="task-index">{{$index+1}}</span>
+				    	<input type="checkbox" class="checkbox" ng-click="changeDone(index)" />
+				    	<span ng-bind="task.taskText"></span>
+				    	<button class="fa fa-trash-o" ng-click="removeTask(index)"></button>
+				    	<input type="date" class="datepicker" ng-model="deadline" />
+				    	<button class="more" ng-click="showDetails = !showDetails"><i class="fa fa-ellipsis-h"></i></button>
+
+	                    <!-- Details -->
+
+				    	<div id="details" ng-hide="showDetails">
+				    		
+				    		<div>
+	                            {{task.taskText}}
+	                            <button ng-click="showDetails = !showDetails" class="fa fa-chevron-right"></button>
+	                        </div>
+				    		
+	                        <div>Deadline: {{task.deadline}}</div>
+
+	                        <form ng-submit="addSubTask(index)">
+	                            <input type="text" class="add-sub-task" placeholder="Add sub task..." ng-model="kurwa" />
+	                            <button class="fa fa-plus-circle"></button>
+	                        </form>
+				    		
+	                        <div class="sub-tasks">
+				    			
+	                            <h4>Sub tasks:</h4>
+				    			
+	                            <ul>
+				    				<li ng-repeat="(subIndex, subtask) in categoryList[categoryIndex].toDoList[index].subtasks" class="sub-task">
+	                                    {{subtask.subtaskText}}
+	                                    <button class="fa fa-remove" ng-click="removeSubTask(index, subIndex)"></button>
+	                                </li>
+				    			</ul>
+
+				    		</div>
+
+	                        <div class="comments">
+	    			    		
+	                            <h4>Comments:</h4>
+	    			    		
+	                            <ul>
+	                                <li class="comment col-md-12" ng-repeat="(subIndex, comment) in categoryList[categoryIndex].toDoList[index].comments">
+	                                    {{comment.comment}}
+	                                    <button class="fa fa-remove" ng-click="removeComment(index, subIndex)"></button>
+	                                </li>
+	                            </ul>
+	                            
+	                            <form ng-submit="addComment(index)">
+	    			    		   <textarea class="comment col-md-12" placeholder="Add comment..." ng-model="commentText" ></textarea> 
+	                               <button class="fa fa-plus-circle col-md-12"> Add comment</button>
+	                            </form>
+
+	                        </div>
+
+				    	</div>
+		
+			    	</li>	
+
+			    </div>
+		    	
+		    	<h3>Done</h3>
+		    	
+		    	<div id="todo-list-done" >
+
+		    		<li class="task" ng-class="{'undone': isDone, 'done': !isDone}" ng-repeat="(index, task) in categoryList[categoryIndex].toDoListDone">
+		    			
+		    			<span class="task-index">{{$index+1}}</span>
+		    			<input class="checkbox" type="checkbox" ng-click="changeDone(index)" disabled readonly checked />
+		    			<span ng-bind="task.taskText"></span>
+		    			<button class="fa fa-trash-o" ng-click="removeTask(index)"></button>
+				    	<input type="date" class="datepicker" />
+
+		    		</li>
+
+		    	</div>
+		    	
+		    	<div id="remove">
+	                <button id="remove-btn" ng-click="removeDoneTasks()"><i class="fa fa-remove"></i> Remove done tasks</button>
+	                <button id="remove-btn" ng-click="removeAllTasks()"><i class="fa fa-remove"></i> Remove all tasks</button>
+	            </div>
+	            
+	    	</div>
+	    	
+    	</div>
+
+        <footer id="footer" class="col-md-12">
+            Made by Mateusz Piotrowicz &copy; 2015
+        </footer>
+
+    </div>
+
+</body>
+</html>

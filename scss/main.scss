@@ -1,0 +1,309 @@
+// Colors
+
+$white: #fff;
+$lightGray: #f5f5f5;
+$darkGray: #b6b6b6;
+
+
+/* General */
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+ #content-container {
+    	padding: 0;
+    	min-height: 500px;
+    	border-bottom: 1px solid $darkGray;
+    	margin-bottom: 10px;
+}
+
+.fa-trash-o, .datepicker {
+    float: right;
+}
+
+
+/* Header */
+
+
+#header {
+    background: $lightGray;
+    height: 80px;
+    line-height: 80px;
+    vertical-align: middle;
+    text-align: center;    
+    border-bottom: 1px solid $darkGray;
+}
+
+
+/* Categories */
+
+
+#categories-container {
+   
+    padding: 0;
+
+    h3 {
+	    border-bottom: 1px dotted $darkGray;
+	    text-align: center;
+	    padding: 10px;
+	    margin-top: 0;
+	    margin-bottom: 0;
+	}
+
+	form {
+        height: 40px;
+        line-height: 40px;
+        vertical-align: middle;
+        border-bottom: 1px solid $darkGray;
+        text-align: center;
+        padding: 0;
+
+        input {
+	        line-height: 14px;
+	    }
+
+	    button {
+	        width: 40px;
+	        height: 40px;
+	        border: none;
+	        background: $darkGray;
+	        float: right;
+	        display: inline-block;
+	    }
+
+    }
+
+    .category {
+        height: 30px;
+        line-height: 30px;
+        vertical-align: middle;
+        border-bottom: 1px solid $darkGray;
+        padding-left: 10px;
+        background: $lightGray;
+
+        i {
+	        padding-right: 10px;
+	    }
+
+    }
+
+    #total-categories {
+        height: 30px;
+        line-height: 30px;
+        vertical-align: middle;
+        background: $lightGray;
+        text-align: center;
+        border-bottom: 1px solid $darkGray;
+    }
+
+}
+
+
+/* Main */
+
+
+#todo-container {   
+   	text-align: center;
+    border-left: 1px solid $darkGray;
+    min-height: 500px;
+    padding: 0;
+
+    h2 {
+    	margin-top: 10px;
+    }
+
+    h3 {
+    	border-bottom: 1px dotted $darkGray;
+    	padding: 10px;
+    }
+
+    #total, #remove {
+    	background: $lightGray;
+    	margin-top: 20px;
+    	padding: 10px;
+    	border-top: 1px solid $darkGray; 
+    }
+
+    #total {
+    	margin-top: 0;
+    }
+
+    form {
+
+    	width: 100%;
+    	height: 50px;
+    	line-height: 50px;
+    	vertical-align: middle;
+    	background: $lightGray;
+    	border-bottom: 1px solid $darkGray;
+
+    	#new-task-input {
+	    	width: 80%;
+	        line-height: 14px;
+	    }
+
+	    button {
+	    	background: transparent;
+    		border: none;
+	    }
+
+    }
+
+    #remove-btn {
+    	font-family: 'Roboto', sans-serif;
+    	background: transparent;
+    	border: 1px solid $darkGray;
+    	padding: 5px;
+    }   
+
+}
+
+
+/* To Do List */
+
+
+#todo-list-undone, #todo-list-done {
+    
+    background: $lightGray;
+    border: 1px solid $darkGray;
+    margin: 0 auto;	
+    padding: 10px;
+    padding-bottom: 0;
+
+    .task {
+    	
+    	border: 1px solid $darkGray;
+    	background: #f8f8f8;
+    	height: 30px;
+    	line-height: 30px;
+    	vertical-align: middle;
+    	margin-bottom: 10px;
+    	list-style: none;
+    	text-align: left;
+    	margin-bottom: 10px;
+    	display: block;
+
+    	.task-index {
+	    	background: #b1b1b1;
+	    	display: inline-block;
+	    	width: 30px;
+	    	height: 30px;
+	    	text-align: center;
+	    	color: #000;
+	    }
+
+	    .checkbox {
+	    	display: inline-block;
+	    	margin: 0 auto;
+	    	margin-left: 10px !important;
+	    	margin-right: 10px !important;
+	    	margin-top: 0!important;
+	    	vertical-align: middle;
+	    	background: transparent;
+	    	border: none;
+	    }
+
+	    .datepicker {
+	    	margin-top: 3px;
+	        height: 22px;
+	    }
+    }
+
+    .done {
+    	color: $darkGray;
+    	text-decoration: line-through;
+    }
+
+}
+
+.task button, .category button {
+    background: transparent;
+    border: none;
+    min-height: 30px;
+    width: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    float: right;
+}
+
+
+
+/* Details */
+
+
+#details {
+	
+	position:absolute;
+	top: 0;
+	right: 0;
+	background: $lightGray;
+    border: 1px solid $darkGray;
+	z-index: 9999;
+    height: 400px;
+    width: 400px;
+    text-align: center;
+
+    h4 {
+    	border-bottom: 1px dotted $darkGray;
+    }
+
+    input {
+    	height: 22px;
+        line-height: 22px;
+    }
+
+}
+
+
+/* Sub Tasks*/
+
+
+.sub-tasks, .comments {
+
+	ul {
+		list-style: none;
+        padding: 0;
+	}
+        
+}
+
+.sub-task, .comment {
+    border-bottom: 1px solid $darkGray;
+}
+
+
+/* Comments */
+
+
+.comments {
+	
+	h4 {
+		border-bottom: 1px dotted $darkGray;
+	}
+
+	button {
+		float: none;
+        display: inline-block;
+	}
+
+	textarea {
+		line-height: 14px;
+	}
+
+}
+
+
+/* Footer */
+
+
+#footer {
+    background: $lightGray;
+    height: 80px;
+    line-height: 80px;
+    vertical-align: middle;
+    border-top: 1px solid $darkGray;
+    text-align: center;
+    margin-top: 20px;
+}
