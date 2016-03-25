@@ -35,9 +35,10 @@ gulp.task('sass', function() {
 // Concatenate & Minify JS | concat, rename, uglify
 gulp.task('scripts', function() {
     return gulp.src('js/*.js')
-        .pipe(concat('main.js'))
+        .pipe(concat('all.js'))
         .pipe(gulp.dest('dist/js'))
-        .pipe(rename('main.min.js'))
+        .pipe(filesize())
+        .pipe(rename('all.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('dist/js'))
         .pipe(filesize());
