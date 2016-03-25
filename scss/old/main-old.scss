@@ -1,0 +1,433 @@
+// SASS ELEMENTS
+
+// VARIABLES
+	// Colors:
+
+    $white: #fff;
+    $black: #fff;
+    $lightGray: #0091ea;
+    $darkGray:#01579b;
+
+	// Fonts:
+
+    $font: 'Roboto', sans-serif;
+
+// MIXINS
+
+@mixin transition($args) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+@mixin line-height($height) {
+  height: $height;
+  line-height: $height;
+  vertical-align: middle;
+}
+
+@mixin box-shadow($top, $left, $blur, $size, $color, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow:inset $top $left $blur $size $color;
+        -moz-box-shadow:inset $top $left $blur $size $color;
+        box-shadow:inset $top $left $blur $size $color;
+    } @else {
+        -webkit-box-shadow: $top $left $blur $size $color;
+        -moz-box-shadow: $top $left $blur $size $color;
+        box-shadow: $top $left $blur $size $color;
+    }
+}
+
+
+
+/* General */
+
+
+body { font-family: $font; color: $white }
+
+ #content-container {
+    padding: 0;
+    border-bottom: 1px solid $darkGray;
+    margin-bottom: 10px;
+}
+
+.fa-trash-o,
+.datepicker {
+    float: right;
+}
+
+input,
+textarea {
+  border: 1px solid $darkGray;
+  padding: 2px;
+  @include border-radius(5px);
+}
+
+button {
+  border: none;
+  background: transparent;
+}
+
+.datepicker { color: #999; }
+
+::-webkit-scrollbar {
+  width: 12px;  /* for vertical scrollbars */
+  height: 12px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track { background: $white; }
+
+::-webkit-scrollbar-thumb {
+  background: $lightGray;
+  border: 1px solid $darkGray;
+}
+
+ul { list-style-type: circle!important; }
+
+
+/* Header */
+
+
+#header {
+    background: $lightGray;
+    text-align: center;
+    // border-bottom: 1px solid $darkGray;
+    @include line-height(80px);
+    -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h1 {
+    padding-top: 20px;
+    margin: 0;
+}
+
+
+/* Categories */
+
+
+#categories-container {
+    padding: 0;
+
+    #categories-title {
+	    border-bottom: 1px dotted $darkGray;
+	    text-align: center;
+	    padding: 10px;
+	    margin-top: 0;
+	    margin-bottom: 0;
+	}
+
+	#categories-form {
+      border-bottom: 1px solid $darkGray;
+      text-align: center;
+      padding: 0;
+      @include line-height(40px);
+
+      input {
+        width: calc(100% - 50px);
+	      line-height: 14px;
+	    }
+
+	    button {
+	      width: 40px;
+	      height: 40px;
+        font-size: 20px;
+        float: right;
+	    }
+
+    }
+
+    .category {
+        border-bottom: 1px solid $darkGray;
+        padding-left: 10px;
+        background: $lightGray;
+        @include line-height(40px);
+
+        a {
+            color: $black;
+            text-decoration: none;
+        }
+
+        button {
+            float: right;
+            display: inline-block;
+            width: 40px;
+            @include line-height(40px);
+        }
+
+        i { padding-right: 10px; }
+
+    }
+
+    #total-categories {
+        background: $lightGray;
+        text-align: center;
+        border-bottom: 1px solid $darkGray;
+        @include line-height(30px);
+    }
+
+}
+
+
+/* Main */
+
+
+#todo-container {
+   	text-align: center;
+    border-left: 1px solid $darkGray;
+    min-height: 500px;
+    padding: 0;
+
+    #todo-title { margin-top: 10px; }
+
+    h3 {
+    	border-bottom: 1px dotted $darkGray;
+    	padding: 10px;
+    }
+
+    #total,
+    #remove {
+    	background: $lightGray;
+    	margin-top: 20px;
+    	padding: 10px;
+    	border-top: 1px solid $darkGray;
+    }
+
+    #total {
+        height: 20px;
+    	  margin-top: 0;
+        padding: 5px;
+    }
+
+    #remove { border-bottom: 1px solid $darkGray; }
+
+    #todo-form {
+    	width: 100%;
+    	background: $lightGray;
+    	border-bottom: 1px solid $darkGray;
+      @include line-height(50px);
+
+    	#new-task-input,
+      #add-category {
+          width: calc(100% - 100px);
+	        line-height: 14px;
+	    }
+
+	    button {
+        margin-left: 0;
+        font-size: 20px;
+	    }
+
+    }
+
+    .remove-btn {
+    	border: 1px solid $darkGray;
+    	padding: 5px;
+    }
+
+}
+
+
+/* To Do List */
+
+
+#todo-list-undone,
+#todo-list-done {
+    margin: 0 auto;
+    padding: 10px;
+    padding-bottom: 0;
+
+    .task {
+      border: 1px solid $darkGray;
+    	background: #f8f8f8;
+    	margin-bottom: 10px;
+    	text-align: left;
+    	margin-bottom: 10px;
+    	display: block;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+
+      @include line-height(40px);
+      @include box-shadow(2px, 2px, 4px, 0px, rgba(50, 50, 50, 0.2));
+
+    	.task-index {
+	    	background: #b1b1b1;
+	    	display: none;
+	    	width: 40px;
+	    	height: 40px;
+	    	text-align: center;
+	    	color: $black;
+	    }
+
+	    .checkbox {
+	    	display: inline-block;
+	    	margin: 0 auto;
+	    	margin-left: 10px !important;
+	    	margin-right: 10px !important;
+	    	margin-top: 0!important;
+	    	vertical-align: middle;
+	    	background: transparent;
+	    	border: none;
+	    }
+
+	    .datepicker {
+	      margin-top: 8px;
+	      height: 22px;
+	    }
+    }
+
+    .done {
+    	color: $darkGray;
+    	text-decoration: line-through;
+    }
+
+}
+
+.task button,
+.category button {
+    width: 40px;
+    float: right;
+    padding-top: 0;
+    @include line-height(40px);
+}
+
+
+/* Details */
+
+
+.details {
+	position: fixed !important;
+	top: 0;
+  right: 0;
+	background: $lightGray;
+  border-left: 1px solid $darkGray;
+	z-index: 9999;
+  height: 100%;
+  width: 400px;
+  text-align: left;
+  overflow-y: auto;
+  overflow-x: hidden;
+  @include box-shadow(-2px, 0px, 6px, 0px, rgba(50, 50, 50, 0.4));
+
+    .details-title {
+
+        h4 {
+            padding: 10px;
+            display: inline-block;
+            padding-left: 20px;
+        }
+
+        button { @include line-height(59px); }
+    }
+
+    .date-box {
+        height: 70px;
+        text-align: left;
+        padding-left: 20px;
+
+        .datepicker {
+            float: none;
+            margin: 0 auto;
+            width: calc(100% - 50px);
+        }
+
+    }
+
+    .sub-tasks, .comments {
+        padding-left: 20px;
+
+        .sub-task,
+        .comment {
+            display: block;
+        }
+
+        form {
+            border: none!important;
+            @include line-height(36px);
+
+            input {
+                width: calc(100% - 50px);
+                @include line-height(22px);
+            }
+
+            textarea {
+                width: calc(100% - 50px);
+            }
+        }
+
+        ul {
+            padding: 0;
+            overflow-y: auto;
+            margin-right:0!important;
+
+            button {
+                float: right;
+                display: inline-block;
+                width: 40px;
+                @include line-height(40px);
+            }
+
+            li {
+                text-align: left;
+                padding-left: 0px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                @include line-height(30px);
+            }
+        }
+    }
+}
+
+
+/* Footer */
+
+
+#footer {
+    background: $lightGray;
+    border-top: 1px solid $darkGray;
+    text-align: center;
+    margin-top: 20px;
+    @include line-height(80px);
+}
+
+
+/* Animations */
+
+
+.ng-move,
+.ng-enter,
+.ng-leave {
+  @include transition(all linear 0.4s);
+}
+
+.ng-leave.ng-leave-active,
+.ng-move,
+.ng-enter {
+  opacity:0;
+}
+
+.ng-leave,
+.ng-move.ng-move-active,
+.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.animate-hide {
+    position: absolute;
+    margin-right: 0;
+    @include transition(all linear 0.2s);
+}
+
+.animate-hide.ng-hide { margin-right: -400px; }
+
+.button-div { padding-left: 0; }

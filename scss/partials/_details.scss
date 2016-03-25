@@ -1,0 +1,109 @@
+/* Details */
+
+
+.details {
+	position: fixed !important;
+	top: 0;
+  right: 0;
+	background: $white;
+	z-index: 9999;
+  height: 100%;
+  width: 400px;
+  text-align: left;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 20px;
+  @include box-shadow(-2px, 0px, 6px, 0px, rgba(50, 50, 50, 0.4));
+
+  h4 { font-size: 26px; }
+
+    .details-title {
+      padding: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid $lightGray;
+			@include line-height(60px);
+      height: 87px;	
+
+        h4 {
+          padding: 0;
+          margin: 0;
+          display: inline-block;
+          font-size: 26px;
+        }
+
+        button { @include line-height(40px); }
+    }
+
+    .date-box {
+        text-align: left;
+        padding-left: 20px;
+
+        .datepicker {
+            float: none;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+    }
+
+    .sub-tasks,
+    .comments,
+    .date-box {
+        padding: 0 20px;
+        margin: 20px 0;
+
+        .sub-task,
+        .comment {
+            display: block;
+            @include line-height(40px);
+            padding: 0;
+        }
+
+        h4 { margin: 10px 0; }
+
+        form {
+            border: none!important;
+            @include line-height(40px);
+
+            input {
+                width: calc(100% - 50px);
+                @include line-height(22px);
+                margin: 0;
+            }
+
+            textarea {
+                width: 100%;
+                line-height: normal;
+            }
+        }
+
+        ul {
+            padding: 0;
+            overflow-y: auto;
+            margin-right:0!important;
+
+            button {
+                float: right;
+                display: inline-block;
+                width: 40px;
+                margin-right: -15px;
+                @include line-height(40px);
+            }
+
+            li {
+                text-align: left;
+                padding-left: 0;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                @include line-height(30px);
+            }
+        }
+    }
+}
+
+.comment-button {
+  width: 100%!important;
+  display: block;
+  color: $white;
+}

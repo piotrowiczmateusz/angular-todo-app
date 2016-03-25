@@ -1,0 +1,60 @@
+// SASS ELEMENTS
+
+// VARIABLES
+	// Colors:
+
+    $white: #fff;
+    $silver: #f5f5f5;
+    $lightGray: #e0e0e0;
+    $black: #000;
+    $blue:#01579b;
+
+
+	// Fonts:
+
+    $font: 'Roboto', sans-serif;
+
+// MIXINS
+
+@mixin transition($args) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+@mixin line-height($height) {
+  height: $height;
+  line-height: $height;
+  vertical-align: middle;
+}
+
+@mixin box-shadow($top, $left, $blur, $size, $color, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow:inset $top $left $blur $size $color;
+        -moz-box-shadow:inset $top $left $blur $size $color;
+        box-shadow:inset $top $left $blur $size $color;
+    } @else {
+        -webkit-box-shadow: $top $left $blur $size $color;
+        -moz-box-shadow: $top $left $blur $size $color;
+        box-shadow: $top $left $blur $size $color;
+    }
+}
+
+
+// IMPORT
+
+@import 'partials/global';
+@import 'partials/general';
+@import 'partials/main';
+@import 'partials/categories';
+@import 'partials/todo';
+@import 'partials/details';
+@import 'partials/animations'

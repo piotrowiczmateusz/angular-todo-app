@@ -1,0 +1,326 @@
+/* General */
+body {
+  font-family: "Roboto", sans-serif;
+  color: #fff; }
+
+#content-container {
+  padding: 0;
+  border-bottom: 1px solid #01579b;
+  margin-bottom: 10px; }
+
+.fa-trash-o,
+.datepicker {
+  float: right; }
+
+input,
+textarea {
+  border: 1px solid #01579b;
+  padding: 2px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */ }
+
+button {
+  border: none;
+  background: transparent; }
+
+.datepicker {
+  color: #999; }
+
+::-webkit-scrollbar {
+  width: 12px;
+  /* for vertical scrollbars */
+  height: 12px;
+  /* for horizontal scrollbars */ }
+
+::-webkit-scrollbar-track {
+  background: #fff; }
+
+::-webkit-scrollbar-thumb {
+  background: #0091ea;
+  border: 1px solid #01579b; }
+
+ul {
+  list-style-type: circle !important; }
+
+/* Header */
+#header {
+  background: #0091ea;
+  text-align: center;
+  height: 80px;
+  line-height: 80px;
+  vertical-align: middle;
+  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+
+h1 {
+  padding-top: 20px;
+  margin: 0; }
+
+/* Categories */
+#categories-container {
+  padding: 0; }
+  #categories-container #categories-title {
+    border-bottom: 1px dotted #01579b;
+    text-align: center;
+    padding: 10px;
+    margin-top: 0;
+    margin-bottom: 0; }
+  #categories-container #categories-form {
+    border-bottom: 1px solid #01579b;
+    text-align: center;
+    padding: 0;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle; }
+    #categories-container #categories-form input {
+      width: calc(100% - 50px);
+      line-height: 14px; }
+    #categories-container #categories-form button {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      float: right; }
+  #categories-container .category {
+    border-bottom: 1px solid #01579b;
+    padding-left: 10px;
+    background: #0091ea;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle; }
+    #categories-container .category a {
+      color: #fff;
+      text-decoration: none; }
+    #categories-container .category button {
+      float: right;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      vertical-align: middle; }
+    #categories-container .category i {
+      padding-right: 10px; }
+  #categories-container #total-categories {
+    background: #0091ea;
+    text-align: center;
+    border-bottom: 1px solid #01579b;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle; }
+
+/* Main */
+#todo-container {
+  text-align: center;
+  border-left: 1px solid #01579b;
+  min-height: 500px;
+  padding: 0; }
+  #todo-container #todo-title {
+    margin-top: 10px; }
+  #todo-container h3 {
+    border-bottom: 1px dotted #01579b;
+    padding: 10px; }
+  #todo-container #total,
+  #todo-container #remove {
+    background: #0091ea;
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #01579b; }
+  #todo-container #total {
+    height: 20px;
+    margin-top: 0;
+    padding: 5px; }
+  #todo-container #remove {
+    border-bottom: 1px solid #01579b; }
+  #todo-container #todo-form {
+    width: 100%;
+    background: #0091ea;
+    border-bottom: 1px solid #01579b;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle; }
+    #todo-container #todo-form #new-task-input,
+    #todo-container #todo-form #add-category {
+      width: calc(100% - 100px);
+      line-height: 14px; }
+    #todo-container #todo-form button {
+      margin-left: 0;
+      font-size: 20px; }
+  #todo-container .remove-btn {
+    border: 1px solid #01579b;
+    padding: 5px; }
+
+/* To Do List */
+#todo-list-undone,
+#todo-list-done {
+  margin: 0 auto;
+  padding: 10px;
+  padding-bottom: 0; }
+  #todo-list-undone .task,
+  #todo-list-done .task {
+    border: 1px solid #01579b;
+    background: #f8f8f8;
+    margin-bottom: 10px;
+    text-align: left;
+    margin-bottom: 10px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(50, 50, 50, 0.2);
+    -moz-box-shadow: 2px 2px 4px 0px rgba(50, 50, 50, 0.2);
+    box-shadow: 2px 2px 4px 0px rgba(50, 50, 50, 0.2); }
+    #todo-list-undone .task .task-index,
+    #todo-list-done .task .task-index {
+      background: #b1b1b1;
+      display: none;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      color: #fff; }
+    #todo-list-undone .task .checkbox,
+    #todo-list-done .task .checkbox {
+      display: inline-block;
+      margin: 0 auto;
+      margin-left: 10px !important;
+      margin-right: 10px !important;
+      margin-top: 0 !important;
+      vertical-align: middle;
+      background: transparent;
+      border: none; }
+    #todo-list-undone .task .datepicker,
+    #todo-list-done .task .datepicker {
+      margin-top: 8px;
+      height: 22px; }
+  #todo-list-undone .done,
+  #todo-list-done .done {
+    color: #01579b;
+    text-decoration: line-through; }
+
+.task button,
+.category button {
+  width: 40px;
+  float: right;
+  padding-top: 0;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: middle; }
+
+/* Details */
+.details {
+  position: fixed !important;
+  top: 0;
+  right: 0;
+  background: #0091ea;
+  border-left: 1px solid #01579b;
+  z-index: 9999;
+  height: 100%;
+  width: 400px;
+  text-align: left;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-box-shadow: -2px 0px 6px 0px rgba(50, 50, 50, 0.4);
+  -moz-box-shadow: -2px 0px 6px 0px rgba(50, 50, 50, 0.4);
+  box-shadow: -2px 0px 6px 0px rgba(50, 50, 50, 0.4); }
+  .details .details-title h4 {
+    padding: 10px;
+    display: inline-block;
+    padding-left: 20px; }
+  .details .details-title button {
+    height: 59px;
+    line-height: 59px;
+    vertical-align: middle; }
+  .details .date-box {
+    height: 70px;
+    text-align: left;
+    padding-left: 20px; }
+    .details .date-box .datepicker {
+      float: none;
+      margin: 0 auto;
+      width: calc(100% - 50px); }
+  .details .sub-tasks, .details .comments {
+    padding-left: 20px; }
+    .details .sub-tasks .sub-task,
+    .details .sub-tasks .comment, .details .comments .sub-task,
+    .details .comments .comment {
+      display: block; }
+    .details .sub-tasks form, .details .comments form {
+      border: none !important;
+      height: 36px;
+      line-height: 36px;
+      vertical-align: middle; }
+      .details .sub-tasks form input, .details .comments form input {
+        width: calc(100% - 50px);
+        height: 22px;
+        line-height: 22px;
+        vertical-align: middle; }
+      .details .sub-tasks form textarea, .details .comments form textarea {
+        width: calc(100% - 50px); }
+    .details .sub-tasks ul, .details .comments ul {
+      padding: 0;
+      overflow-y: auto;
+      margin-right: 0 !important; }
+      .details .sub-tasks ul button, .details .comments ul button {
+        float: right;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        vertical-align: middle; }
+      .details .sub-tasks ul li, .details .comments ul li {
+        text-align: left;
+        padding-left: 0px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 30px;
+        line-height: 30px;
+        vertical-align: middle; }
+
+/* Footer */
+#footer {
+  background: #0091ea;
+  border-top: 1px solid #01579b;
+  text-align: center;
+  margin-top: 20px;
+  height: 80px;
+  line-height: 80px;
+  vertical-align: middle; }
+
+/* Animations */
+.ng-move,
+.ng-enter,
+.ng-leave {
+  -webkit-transition: all linear 0.4s;
+  -moz-transition: all linear 0.4s;
+  -ms-transition: all linear 0.4s;
+  -o-transition: all linear 0.4s;
+  transition: all linear 0.4s; }
+
+.ng-leave.ng-leave-active,
+.ng-move,
+.ng-enter {
+  opacity: 0; }
+
+.ng-leave,
+.ng-move.ng-move-active,
+.ng-enter.ng-enter-active {
+  opacity: 1; }
+
+.animate-hide {
+  position: absolute;
+  margin-right: 0;
+  -webkit-transition: all linear 0.2s;
+  -moz-transition: all linear 0.2s;
+  -ms-transition: all linear 0.2s;
+  -o-transition: all linear 0.2s;
+  transition: all linear 0.2s; }
+
+.animate-hide.ng-hide {
+  margin-right: -400px; }
+
+.button-div {
+  padding-left: 0; }

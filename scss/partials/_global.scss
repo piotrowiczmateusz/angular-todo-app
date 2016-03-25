@@ -1,0 +1,55 @@
+/* Global */
+
+
+body {
+  font-family: $font;
+  color: $black;
+}
+
+a,
+a:hover,
+a:link {
+  text-decoration: none;
+  color: $white;
+}
+
+button {
+  border: none;
+  background: transparent;
+}
+
+button:active,
+button:focus {
+  background: transparent!important;
+}
+
+.fa-trash-o,
+.datepicker {
+    float: right;
+}
+
+.datepicker { color: #999; }
+
+ul { list-style-type: none!important; }
+
+.input-field input[type=text]:focus,
+.input-field input[type=date]:focus,
+.input-field textarea:focus {
+    border-bottom: 1px solid $blue!important;
+    box-shadow: 0 1px 0 0 $blue!important;
+  }
+
+[type="checkbox"]+label {
+    padding-left: 50px;
+    display: inline;
+}
+
+[type="checkbox"].filled-in:checked+label:after {
+  background: $blue;
+  border: 2px solid $blue;
+}
+
+h1 {
+    padding-top: 20px;
+    margin: 0;
+}

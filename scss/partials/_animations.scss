@@ -1,0 +1,28 @@
+/* Animations */
+
+
+.ng-move,
+.ng-enter,
+.ng-leave {
+  @include transition(all linear 0.4s);
+}
+
+.ng-leave.ng-leave-active,
+.ng-move,
+.ng-enter {
+  opacity:0;
+}
+
+.ng-leave,
+.ng-move.ng-move-active,
+.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.animate-hide {
+    position: absolute;
+    margin-right: 0;
+    @include transition(all linear 0.2s);
+}
+
+.animate-hide.ng-hide { margin-right: -400px; }

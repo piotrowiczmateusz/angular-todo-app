@@ -1,0 +1,59 @@
+/* Main */
+
+
+#todo-container {
+   	text-align: center;
+    min-height: 500px;
+    padding: 20px 0;
+    border-left: 1px solid $lightGray;
+
+    h2 { margin-top: 10px; }
+    h3 { padding: 10px; }
+
+    #total,
+    #remove {
+    	margin: 20px 0;
+    	padding: 10px;
+    }
+
+    #total {
+        height: 20px;
+    	  margin-top: 0;
+        padding: 5px;
+    }
+
+    form {
+    	width: 100%;
+      @include line-height(50px);
+
+    	#new-task-input,
+      #add-category {
+          width: calc(100% - 100px);
+	        line-height: 14px;
+	    }
+
+	    button {
+        margin-left: 0;
+        font-size: 20px;
+	    }
+
+    }
+
+    .remove-btn {
+    	padding: 5px;
+      height: auto;
+    }
+
+    .remove-btn:hover,
+    .remove-btn:active,
+    .remove-btn:focus {
+      color: $white;
+    }
+
+}
+
+@media (max-width: 768px) {
+  #todo-container {
+    border: none;
+  }
+}
