@@ -137,9 +137,9 @@ App.controller("ToDoCtrl", function($scope, $http) {
 
   $scope.save = function() {
     var data = angular.toJson($scope.categoryList);
-    $.post("/", {
-      data
-    }).done(function() {});
+    $.post("/save", {
+      data: data
+    });
   };
 
   $scope.load = function() {

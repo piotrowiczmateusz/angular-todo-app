@@ -11,8 +11,8 @@ app.get('/', function (req, res) {
 
 });
 
-app.post('/', function (req, res) {
-  fs.writeFile("/data/data.json", JSON.stringify(req.body.data), function() {
+app.post('/save', function (req, res) {
+  fs.writeFile("data/data.json", JSON.stringify(req.body.data), function() {
     console.log("Data saved.");
   });
 });
